@@ -16,10 +16,7 @@ function UseClick() {
         }, [])
         return element;
     }
-
-    const onClick = () => {
-
-    }
+    
     const sayhello = console.log("hi")
     const title = useClick(sayhello)
 
