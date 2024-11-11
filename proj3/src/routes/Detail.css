@@ -1,0 +1,13 @@
+li {
+    list-style: none;
+    margin-left: 10px;
+}
+
+li:nth-child(2) {
+    margin-left: 10px;
+}
+
+span {
+    font-size: 18px; 
+    font-weight: 600;
+}
