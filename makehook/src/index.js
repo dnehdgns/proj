@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import UseTab from './UseTab';
 import reportWebVitals from './reportWebVitals';
+import UseTitle from './UseTitle';
+import UseClick from './UseClick';
+import UseInput from './UseInput';
+import UseConfirm from './UseConfirm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    {/* <UseInput /> */}
+    {/* <UseTab /> */}
+    {/* <UseTitle /> */}
+    {/* <UseClick /> */}
+    <UseConfirm />
   </React.StrictMode>
 );
 
