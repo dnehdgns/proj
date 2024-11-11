@@ -16,8 +16,8 @@ root.render(
     {/* <UseInput /> */}
     {/* <UseTab /> */}
     {/* <UseTitle /> */}
-    {/* <UseClick /> */}
-    <UseConfirm />
+    <UseClick />
+    {/* <UseConfirm /> */}
   </React.StrictMode>
 );
 

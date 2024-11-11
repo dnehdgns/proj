@@ -17,13 +17,12 @@ function UseClick() {
         return element;
     }
     
-    const sayhello = console.log("hi")
+    const sayhello = () => console.log("Hello")
     const title = useClick(sayhello)
-
 
     return(
         <div className="App">
-            <div ref={title}>HI</div>
+            <h1 ref={title}>HI</h1>
         </div>
     ) 
 }

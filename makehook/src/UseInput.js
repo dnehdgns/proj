@@ -18,7 +18,8 @@ function UseInput() {
     }
     return {value, onChange}
   }
-  const maxLen = (value) => !value.include("@");
+  // const maxLen = (value) => !value.includes("@");
+  const maxLen = (value) => value.length < 10;
   const name = useInput("Mr.", maxLen);
   return (
     <div className="App">
