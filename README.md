@@ -6,7 +6,11 @@ copypdf를 실행시켰을때 첨부된 "대행 및 점검 표준계약서" 내�
 
 # Make_Hook
 
-useClick, useConfirm, useInput, useTab, useTitle
+useClick : HTML의 해당요소를 클릭하였을때 반응하는 이벤트.
+useConfirm : 사용자의 행동에 따른 확인하는 이벤트.
+useInput : HTML의 input 속성을 간단하게 구현.
+useTab : 각각의 버튼을 눌렀을때 나오는 결과값이 다르도록 구현.
+useTitle : HTML title에 관한 속성을 변경
 
 
 # Movie_List
