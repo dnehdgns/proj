@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -15,39 +15,34 @@ function Main() {
       setText(e.target.value)
     }
 
-    const progressCircle = useRef(null);
-    const progressContent = useRef(null);
-    const onAutoplayTimeLeft = (s, time, progress) => {
-      progressCircle.current.style.setProperty('--progress', 1 - progress);
-      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    };
-
 
     return (
       <div className="main">
-        <div className="fixedbar_top" style={{ width : "65%", height : "120px", margin : "auto", display:"flex" }}>
-          <img src={"./images/cat1.jpg"} alt="" style={{ width:"120px", height:"120px"}} />
+        <div className="fixedbar_top" style={{ width : "63%", height : "100px", margin : "auto", display:"flex" }}>
+          <img src={"./images/cat1.jpg"} alt="" style={{ width:"100px", height:"100px", cursor:"pointer"}} />
+          <img src={"./images/cat1.jpg"} alt="" style={{ width:"100px", height:"100px", cursor:"pointer"}} />
           <div className="search_bar" style={{ marginLeft:"50px", marginTop:"40px", position:"relative" }}>
             <input onChange={onChange} value={text} style={{width:"500px", height:"40px", borderRadius:"50px", border:"2px solid blue"}}></input>
             <button style={{ 
               border:"none", backgroundColor:"#fff", 
               width:"30px", height:"30px", marginLeft:"-50px",
               position:"absolute", top: "5px"
-              }}><i style={{fontSize:"25px", textAlign:"center", color:"blue"}}>🔍︎</i></button>
+              }}><i style={{fontSize:"25px", textAlign:"center", color:"blue", cursor:"pointer"}}>🔍︎</i></button>
           </div>
-          <img src="./images/cat2.jpg" alt="" style={{ width:"100px", height:"100px", marginLeft:"50px", marginRight:"50px"}} />
-          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-mypage.svg" alt="" style={{width:"50px", height:"50px"}} className="logo" />
-          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-recent.svg" alt="" style={{width:"50px", height:"50px"}} className="logo" />
-          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-cart.svg" alt="" style={{width:"50px", height:"50px"}} className="logo"/>
+          <img src="./images/cat2.jpg" alt="" style={{ width:"100px", height:"100px", marginLeft:"50px", marginRight:"110px", cursor:"pointer"}} />
+          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-mypage.svg" alt="" style={{width:"40px", height:"40px"}} className="logo" />
+          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-recent.svg" alt="" style={{width:"40px", height:"40px"}} className="logo" />
+          <img src="//pics.gmarket.co.kr/pc/single/kr/common/image__header-cart.svg" alt="" style={{width:"40px", height:"40px"}} className="logo"/>
         </div>
         <div className="menubar" style={{display:"flex", margin:"auto", width:"100%", borderBottom:"1px solid gray"}}>
             <button style={{ 
               marginLeft:"335px", backgroundColor : "#fff", 
               border:"none", width:"200px", height:"80px", 
-              borderRadius:"10px", color :"black", fontSize:"18px", textAlign:"left", paddingLeft:"30px"
+              borderRadius:"10px", color :"black", fontSize:"18px", 
+              textAlign:"left", paddingLeft:"30px"
               }} className="menubtn">전체 카테고리</button>
-            <ul style={{display:"flex", marginTop:"50px", marginBottom:"-20px"}}>
-              <li>베스트</li>
+            <ul style={{display:"flex", marginTop:"30px", marginBottom:"-20px", fontSize:"15px"}}>
+              <li style={{marginLeft:"40px"}}>베스트</li>
               <li>슈퍼딜</li>
               <li>10%쿠폰</li>
               <li>스마일프레시</li>
@@ -55,51 +50,17 @@ function Main() {
               <li>유니버스배송</li>
               <li>사업자클럽</li>
             </ul>
-            <ul style={{display:"flex", marginTop:"50px", marginBottom:"-20px", fontSize:"12px", color:"gray", marginLeft:"70px"}}>
+            <ul style={{display:"flex", marginTop:"30px", marginBottom:"-20px", fontSize:"13px", color:"gray", marginLeft:"70px"}}>
               <li>로그인</li>
               <li>회원가입</li>
               <li>고객센터</li>
               <li>Global</li>
             </ul>
           </div>
-        <div style={{ height:"377px", backgroundColor:"pink", position:"relative"}}>
-          <div className="ad" style={{ width:"100%", height:"377px", zIndex:"0" }}>
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Autoplay, Pagination, Navigation]}
-              onAutoplayTimeLeft={onAutoplayTimeLeft}
-              className="mySwiper"
-              loop={true}
-            >
-              <SwiperSlide>Slide 1</SwiperSlide>
-              <SwiperSlide>Slide 2</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 4</SwiperSlide>
-              <SwiperSlide>Slide 5</SwiperSlide>
-              <SwiperSlide>Slide 6</SwiperSlide>
-              <SwiperSlide>Slide 7</SwiperSlide>
-              <SwiperSlide>Slide 8</SwiperSlide>
-              <SwiperSlide>Slide 9</SwiperSlide>
-              <div className="autoplay-progress" slot="container-end">
-                <svg viewBox="0 0 48 48" ref={progressCircle}>
-                  <circle cx="24" cy="24" r="20"></circle>
-                </svg>
-                <span ref={progressContent}></span>
-              </div>
-            </Swiper>
-          </div>
-          <div className="category" style={{ width:"65%",height:"377px", margin:"auto", borderTop:"none", display:"flex", zIndex:"10", position:"absolute", top:"0px", left:"350px"}}>
-              <ul className="category_list">
-                <li onMouseOver={()=>{setCount(1)}} onMouseOut={()=>{setCount(0)}} >브랜드패션</li>
+        <div style={{ height:"390px", position:"relative"}}>
+          <div className="category" style={{ width:"65%",height:"395px", margin:"auto", borderTop:"none", display:"none", position:"absolute", top:"0px", left:"350px"}}>
+              <ul className="category_list" style={{zIndex:"20"}}>
+                <li onMouseOver={()=>{setCount(1)}} onMouseOut={()=>{setCount(0)}}>브랜드패션</li>
                 <li onMouseOver={()=>{setCount(2)}} onMouseOut={()=>{setCount(0)}}>패션의류 · 잡화 · 뷰티</li>
                 <li onMouseOver={()=>{setCount(3)}} onMouseOut={()=>{setCount(0)}}>유아동</li>
                 <li onMouseOver={()=>{setCount(4)}} onMouseOut={()=>{setCount(0)}}>식품 · 생필품</li>
@@ -109,7 +70,7 @@ function Main() {
                 <li onMouseOver={()=>{setCount(8)}} onMouseOut={()=>{setCount(0)}}>자동차 · 공구</li>
                 <li onMouseOver={()=>{setCount(9)}} onMouseOut={()=>{setCount(0)}}>여행 · 도서 · e쿠폰</li>
               </ul>
-              <div className="goodslist" style={{ display: count===1 ? "flex" : "none"}} onMouseOver={()=>{setCount(1)}} onMouseOut={()=>{setCount(0)}}>
+              {count === 1 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 1 ? "20" : "0"}} onMouseOver={()=>{setCount(1)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>브랜드의류</li>
                   <li>브랜드 여성의류</li>
@@ -136,8 +97,8 @@ function Main() {
                   <li>AK플라자</li>
                   <li>대구백화점</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===2 ? "flex" : "none"}} onMouseOver={()=>{setCount(2)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 2 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 2 ? "20" : "0"}} onMouseOver={()=>{setCount(2)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>패션의류</li>
                   <li>여성의류</li>
@@ -162,8 +123,8 @@ function Main() {
                   <li>바로가기</li>
                   <li>해외직구</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===3 ? "flex" : "none"}} onMouseOver={()=>{setCount(3)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 3 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 3 ? "20" : "0"}} onMouseOver={()=>{setCount(3)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>유아동</li>
                   <li>출산/육아</li>
@@ -179,8 +140,8 @@ function Main() {
                   <li>스마일배송</li>
                   <li>당일배송</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===4 ? "flex" : "none"}} onMouseOver={()=>{setCount(4)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 4 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 4 ? "20" : "0"}} onMouseOver={()=>{setCount(4)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>식품</li>
                   <li>신선식품</li>
@@ -203,8 +164,8 @@ function Main() {
                   <li>G마켓 쌀 상회</li>
                   <li>소상공인동행마켓</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===5 ? "flex" : "none"}} onMouseOver={()=>{setCount(5)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 5 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 5 ? "20" : "0"}} onMouseOver={()=>{setCount(5)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>홈데코</li>
                   <li>가구/DIY</li>
@@ -228,8 +189,8 @@ function Main() {
                   <li>바로가기</li>
                   <li>사업자 클럽</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===6 ? "flex" : "none"}} onMouseOver={()=>{setCount(6)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 6 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 6 ? "20" : "0"}} onMouseOver={()=>{setCount(6)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>컴퓨터</li>
                   <li>노트북/데스크탑</li>
@@ -260,8 +221,8 @@ function Main() {
                   <li>렌탈</li>
                   <li>중고시장</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===7 ? "flex" : "none"}} onMouseOver={()=>{setCount(7)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 7 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 7 ? "20" : "0"}} onMouseOver={()=>{setCount(7)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>스포츠</li>
                   <li>스포츠의류/운동화</li>
@@ -289,8 +250,8 @@ function Main() {
                   <li>상조</li>
                   <li>인터넷 가입</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===8 ? "flex" : "none"}} onMouseOver={()=>{setCount(8)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 8 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 8 ? "20" : "0"}} onMouseOver={()=>{setCount(8)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>자동차</li>
                   <li>자동차용품</li>
@@ -304,8 +265,8 @@ function Main() {
                   <li>바로가기</li>
                   <li>사업자 클럽</li>
                 </ul>
-              </div>
-              <div className="goodslist" style={{ display: count===9 ? "flex" : "none"}} onMouseOver={()=>{setCount(9)}} onMouseOut={()=>{setCount(0)}}>
+              </div> : null}
+              {count === 9 ? <div className="goodslist" style={{ display: "flex", zIndex: count === 9 ? "20" : "0"}} onMouseOver={()=>{setCount(9)}} onMouseOut={()=>{setCount(0)}}>
                 <ul>
                   <li>여행</li>
                   <li>항공권</li>
@@ -337,9 +298,47 @@ function Main() {
                   <li>책 쇼핑</li>
                   <li>책 스마일배송</li>
                 </ul>
-              </div>
+              </div> : null}
+          </div>
+          <div className="ad" style={{ width:"100%", height:"395px", position:"absolute", top:"0px", zIndex:"10" }}>
+            <div style={{ width:"100%", height:"395px", position:"relative"}} >
+              <Swiper
+                  slidesPerView="auto"
+                  centeredSlides={true}
+                  autoplay={{
+                    delay: 3500,
+                    disableOnInteraction: false,
+                  }}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  navigation={true}
+                  modules={[Autoplay, Pagination, Navigation]}
+                  className="mySwiper"
+                  loop={true}
+                >
+                  <SwiperSlide>Slide 1</SwiperSlide>
+                  <SwiperSlide>Slide 2</SwiperSlide>
+                  <SwiperSlide>Slide 3</SwiperSlide>
+                  <SwiperSlide>Slide 4</SwiperSlide>
+                  <SwiperSlide>Slide 5</SwiperSlide>
+                  <SwiperSlide>Slide 6</SwiperSlide>
+                  <SwiperSlide>Slide 7</SwiperSlide>
+                  <SwiperSlide>Slide 8</SwiperSlide>
+                  <SwiperSlide>Slide 9</SwiperSlide>
+                </Swiper>
+            </div>
           </div>
         </div>
+        <div className="timesale" style={{ width:"65%", height:"80px", border:"1px solid gray", marginTop:"80px", marginLeft:"350px", borderRadius:"10px", textAlign:"center"}}>
+              <p>광고내용</p>
+        </div>
+        <div className="bestgoods" style={{ width:"65%", height:"400px", border:"1px solid gray", marginTop:"40px", marginLeft:"350px" }}>
+
+        </div>
+        <footer style={{ width:"100%", height:"500px", borderTop:"1px solid black", marginTop:"20px"}}>
+
+        </footer>
       </div>
     );
   }

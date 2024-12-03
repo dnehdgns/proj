@@ -1,5 +1,6 @@
 .logo {
-    padding:20px
+    padding:20px;
+    margin-top: 20px;
 }
 
 li {
@@ -20,10 +21,11 @@ li {
 }
 
 .category_list li {
-    padding : 10px 20px;
+    padding : 12px 20px;
     background-color: antiquewhite;
     width : 200px;
     border-bottom: 1px solid white;
+    font-size: 14px;
 }
 
 .category_list li:hover {
@@ -41,10 +43,10 @@ li {
 .goodslist ul {
     border: 1px solid white;
     width: 150px;
-    height: 300px;
+    height: 320px;
     border-left: none;
     border-bottom: none;
-    margin-top: px;
+    margin-top: 0px;
     font-size: 13px;
 }
 
@@ -56,6 +58,7 @@ li {
 .goodslist ul li:first-child {
     font-weight: bold;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .goodslist ul.footer {
@@ -64,77 +67,66 @@ li {
     border-top: 1px solid white;
     width: 96%;
     height: 50px;
-    top : 300px;
+    top : 320px;
 }
 .goodslist ul.footer li{
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .goodslist ul.footer li:first-child{
     margin-left: 0px;
 }
 
 
-#app {
-    height: 100%;
-  }
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
+.ad .swiper-button-prev {
+    left : 600px;
+    z-index: 100;
+}
+
+.ad .swiper-button-next {
+    right: 350px;
+    z-index: 100;
+}
+
+.ad .swiper-slide-active {
+    background-color: aquamarine;
+}
+.ad .swiper-slide-prev {
+    background-color: red;
+}
+.ad .swiper-slide-next {
+    background-color: pink;
+}
+
+
+
+
+
   
-  .swiper {
+.ad .swiper {
     width: 100%;
     height: 100%;
     z-index: 0;
-  }
+}
   
-  .swiper-slide {
+.ad .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    width: 976px;
+    margin-right: 0px;
+    border: 1px solid gray;
+    border-top: none;
   
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .swiper-slide img {
+.ad .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  .autoplay-progress {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    z-index: 10;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--swiper-theme-color);
-  }
-  
-  .autoplay-progress svg {
-    --progress: 0;
-    position: absolute;
-    left: 0;
-    top: 0px;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    stroke-width: 4px;
-    stroke: var(--swiper-theme-color);
-    fill: none;
-    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
-    stroke-dasharray: 125.6;
-    transform: rotate(-90deg);
-  }
+}
   
